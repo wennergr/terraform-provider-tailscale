@@ -22,6 +22,14 @@ func dataSourceGroup() *schema.Resource {
 				Required:    true,
 				Description: "The name of the group",
 			},
+			"members": {
+				Type:        schema.TypeList,
+				Description: "members of the group",
+				Computed:    true,
+				Elem: &schema.Schema{
+					Type: schema.TypeString,
+				},
+			},
 			"wait_for": {
 				Type:        schema.TypeString,
 				Description: "If specified, the provider will make multiple attempts to obtain the data source until the wait_for duration is reached. Retries are made every second so this value should be greater than 1s",
